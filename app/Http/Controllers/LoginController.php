@@ -1,17 +1,28 @@
 <?php
 
 namespace App\Http\Controllers;
-use Illuminate\Support\Facades\Auth;
+
+use Illuminate\Auth\AuthenticationException;
 use Illuminate\Http\Request;
+use App\Models\Masyarakat;
+use App\Models\Pengaduan;
+use App\Models\petugas;
+use App\Models\User;
+use Illuminate\Support\Facades\DB;
+use Illuminate\Support\Facades\Hash;
+use Illuminate\Support\Facades\Session;
+use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\Redis;
+
 
 class LoginController extends Controller
 {
-    public function login()
+    function login()
     {
         return view('/login');
     }
 
-    public function home()
+    function home()
     {
         return view('/home');
     }
@@ -21,14 +32,5 @@ class LoginController extends Controller
         return view('/register');
     }
 
-    function proses_login(Request $request)
-    {
-        $datalogin = $request->only("username", "password");
-        if(Auth::attempt($datalogin)){
-            echo "Berhasil Login";
-        }else {
-            echo "gagal login";
-        }
-        return redirect('/home');
-    }
+   
 }
