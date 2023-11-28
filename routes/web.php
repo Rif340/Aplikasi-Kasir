@@ -18,7 +18,7 @@ Route::get('/', function () {
     return view('welcome');
 });
 
-Route::get('/home', [LoginController::class, 'login'])->name('login');
+Route::get('/login', [LoginController::class, 'login'])->name('login');
 
 Route::get('/register', [LoginController::class, 'register']);
 

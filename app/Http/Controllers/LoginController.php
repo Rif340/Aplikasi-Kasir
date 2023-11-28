@@ -32,5 +32,14 @@ class LoginController extends Controller
         return view('/register');
     }
 
-   
+    function proses_login(Request $request)
+    {
+        $datalogin = $request->only("username", "password");
+        if(Auth::attempt($datalogin)){
+            return view('/home');
+        }else {
+            return view('/login');
+        }
+        
+    }
 }
