@@ -24,5 +24,5 @@ Route::get('/register', [LoginController::class, 'register']);
 
 
 Route::middleware(['auth'])->group(function () {
-    Route::get('/home', [LoginController::class, 'home'])->name('home'); 
+    Route::get('/home', [LoginController::class, 'home'])->name('home');
 });
