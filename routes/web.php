@@ -22,7 +22,14 @@ Route::get('/login', [LoginController::class, 'login'])->name('login');
 
 Route::get('/register', [LoginController::class, 'register']);
 
+Route::get('/tambah_produk', [LoginController::class, 'tambah_produk']);
+
+Route::get('/tambah_pelanggan', [LoginController::class, 'tambah_pelanggan']);
+
+Route::get('/home', [LoginController::class, 'home'])->name('home');
+
+Route::get('/logout', [LoginController::class, 'logout']);
 
 Route::middleware(['auth'])->group(function () {
-    Route::get('/home', [LoginController::class, 'home'])->name('home');
+    
 });

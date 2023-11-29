@@ -32,6 +32,23 @@ class LoginController extends Controller
         return view('/register');
     }
 
+    public function tambah_produk()
+    {
+        return view('/tambah_produk');
+    }
+
+    public function tambah_pelanggan()
+    {
+        return view('/tambah_pelanggan');
+    }
+
+    function logout()
+    {
+        Session::flush();
+        Auth::logout();
+        return redirect('/login');
+    }
+
     function proses_login(Request $request)
     {
         $datalogin = $request->only("username", "password");
