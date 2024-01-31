@@ -1,0 +1,34 @@
+#bungkus_pertama{
+    display: flex;
+    margin-left: 2rem;
+}
+
+#input_produk{
+    width: 200px;
+    margin-left: 2rem;
+}
+
+table{
+    margin-left: 2rem;
+    width:200px;
+}
+
+#input_pelanggan{
+    display: flex;
+    margin-left: 2rem;
+}
+
+#total{
+    margin-left: 2rem;
+}
+
+#submit_pelanggan{
+    margin-left: 2rem;
+    width: 100px;
+    height: 30px;
+    margin-top: 25px;
+}
+
+#bungkus_kedua{
+    margin-left: 2rem;
+}

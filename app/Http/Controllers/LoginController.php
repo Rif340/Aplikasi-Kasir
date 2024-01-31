@@ -4,10 +4,8 @@ namespace App\Http\Controllers;
 
 use Illuminate\Auth\AuthenticationException;
 use Illuminate\Http\Request;
-use App\Models\Masyarakat;
-use App\Models\Pengaduan;
-use App\Models\petugas;
-use App\Models\User;
+use App\Models\produk;
+use App\Models\Users;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Hash;
 use Illuminate\Support\Facades\Session;
@@ -17,14 +15,15 @@ use Illuminate\Support\Facades\Redis;
 
 class LoginController extends Controller
 {
-    function login()
+    function tampil_login_petugas()
     {
         return view('/login');
     }
 
     function home()
     {
-        return view('/home');
+        $produk = DB::table('produk')->get(); // Sesuaikan dengan model dan query yang sesuai
+        return view('/home', ['produk' => $produk]);
     }
 
     public function register()
@@ -32,31 +31,30 @@ class LoginController extends Controller
         return view('/register');
     }
 
-    public function tambah_produk()
+    function proses_tambah_petugas(Request $request)
     {
-        return view('/tambah_produk');
-    }
+        $nama_petugas = $request->nama_petugas;
+        $username = $request->username;
+        $password = $request->password;
+        $level = $request->level;
 
-    public function tambah_pelanggan()
-    {
-        return view('/tambah_pelanggan');
-    }
+        DB::table('users')->insert([
 
-    function logout()
-    {
-        Session::flush();
-        Auth::logout();
+            'nama_petugas' => $nama_petugas,
+            'username' => $username,
+            'password' => Hash::make($password),
+            'level' => $level,
+        ]);
+
         return redirect('/login');
     }
 
-    function proses_login(Request $request)
-    {
-        $datalogin = $request->only("username", "password");
-        if(Auth::attempt($datalogin)){
-            return view('/home');
-        }else {
-            return view('/login');
+    function login (request $request){
+        if (Auth::attempt($request->only("username","password"))) {
+           return redirect('/home');
+        }else{
+           return view('/login')->with("salah","username atau password salah");
         }
-        
     }
+
 }

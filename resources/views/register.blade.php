@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
   <link rel="stylesheet" href="{{asset('assets/css/register.css')}}">
   <meta charset="UTF-8">
@@ -13,26 +14,27 @@
       <h2>Registration Form</h2>
     </div>
     <div class="registration-form">
-      <form>
+      <form action="{{'register'}}" method="post">
+        @method('post')
+        @csrf
         <div class="form-group">
-          <label for="name">Full Name:</label>
-          <input type="text" id="name" name="name" required>
+          <label for="name">Nama Petugas :</label>
+          <input type="text" id="name" name="nama_petugas">
         </div>
         <div class="form-group">
-          <label for="email">Email:</label>
-          <input type="email" id="email" name="email" required>
+          <label for="email">Username :</label>
+          <input type="text" id="email" name="username">
         </div>
         <div class="form-group">
-          <label for="gender">Gender:</label>
-          <select id="gender" name="gender">
-            <option value="male">Male</option>
-            <option value="female">Female</option>
-            <option value="other">Other</option>
+          <label for="gender">Pilih Level :</label>
+          <select id="gender" name="level">
+            <option>administrator</option>
+            <option>petugas</option>
           </select>
         </div>
         <div class="form-group">
           <label for="password">Password:</label>
-          <input type="password" id="password" name="password" required>
+          <input type="password" id="password" name="password">
         </div>
         <div class="form-group">
           <button type="submit">Register</button>

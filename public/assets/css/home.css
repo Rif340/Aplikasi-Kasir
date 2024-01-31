@@ -32,6 +32,10 @@ button:hover {
     background-color: #45a049;
 }
 
+.judul{
+    text-align: center;
+}
+
 @media only screen and (max-width: 600px) {
     .navbar {
         width: 100%;
@@ -44,4 +48,6 @@ button:hover {
     form {
         max-width: 100%; /* membuat formulir responsif dengan lebar penuh pada layar kecil */
     }
+
+    
 }
