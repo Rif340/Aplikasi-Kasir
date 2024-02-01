@@ -14,6 +14,10 @@
     <form action="tambah_produk" method="post" enctype="multipart/form-data">
         @method('post')
         @csrf
+        <label for="produk_id">ID PRODUK:</label>
+        <input type="text" id="produk_id" name="produk_id" >
+        <br><br>
+
         <label for="namaProduk">Nama Produk:</label>
         <input type="text" id="namaProduk" name="nama_produk" >
         <br><br>
