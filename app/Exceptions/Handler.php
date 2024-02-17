@@ -2,6 +2,8 @@
 
 namespace App\Exceptions;
 
+use Illuminate\Database\QueryException;
+use Illuminate\Database\MySqlConnection;
 use Illuminate\Foundation\Exceptions\Handler as ExceptionHandler;
 use Throwable;
 
@@ -27,4 +29,14 @@ class Handler extends ExceptionHandler
             //
         });
     }
+    public function render($request, Throwable $exception)
+{
+    if ($exception instanceof QueryException && $exception->getCode() == 2002) {
+        // Handle SQLSTATE[HY000] [2002] exception
+        return response()->json(['message' => 'XAMPP belum dinyalakan. Silakan nyalakan XAMPP terlebih dahulu.'], 500);
+    }
+
+    return parent::render($request, $exception);
+}
+
 }

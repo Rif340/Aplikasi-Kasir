@@ -10,6 +10,9 @@
 
 <body>
     @include('layouts.sidebar')
+    <div class="container">
+    <a href="{{ url('penjualan') }}" type="button" class="btn btn-success kembali">Kembali</a>
+    </div>
         <h1 class="text-center">Tambah Penjualan</h1>
         <div class="row" id="bungkus_pertama">
             <form class="col" id="input_produk" action="tambah_penjualan" method="post">

@@ -24,28 +24,33 @@
         <a href="#">K A S I R</a>
       </header>
       <ul class="nav">
+      <li>
+          <a href="{{ url('dashboard') }}">
+            <i class="zmdi zmdi-view-dashboard"></i> Dashboard
+          </a>
+        </li>
         <li>
-          <a href="{{'home'}}">
+          <a href="{{ url('home') }}">
             <i class="zmdi zmdi-view-dashboard"></i> Data Produk
           </a>
         </li>
         <li>
-          <a href="/pelanggan">
+          <a href="{{ url('pelanggan') }}">
             <i class="zmdi zmdi-link"></i> Data Pelanggan
           </a>
         </li>
         <li>
-          <a href="/penjualan">
+          <a href="{{ url('penjualan') }}">
             <i class="zmdi zmdi-widgets"></i> Data Penjualan
           </a>
         </li>
         <li>
-          <a href="/tambah_penjualan">
+          <a href="{{ url('tambah_penjualan') }}">
             <i class="zmdi zmdi-widgets"></i> Tambah Penjualan
           </a>
         </li>
         <li>
-          <a href="/logout">
+          <a href="{{ url('logout') }}">
             <i class="zmdi zmdi-calendar"></i> Logout
           </a>
         </li>

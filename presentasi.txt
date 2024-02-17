@@ -1,0 +1,24 @@
+banyak tanya si orang dari pt idms
+kalo jawab tapi ngasal bakal di cecer sampe nangis
+
+latar belakang->kita harus mendata secara manual secara itu akan memperlampat pengerjaan dengan adanya aplikasi kasir ini dapat 
+
+pastiin udh tau web apa
+tujuannya buat apa ->sebagai persyaratan kelulusan,untuk memudahkan admin untuk mendata produk dan penjualan
+
+fungsinya/fiturnya buat apa aja->fitur si kasir ini bisa mendata produk,pelanggan,data struk,data transaksi penjualan,jelasin caranya
+
+dibikinnya pake apa aja 
+
+tinggal jelasin per halaman
+nanti halaman ini untuk apa
+nanti halaman ini untuk produk
+
+misalkan kalo dikasir kita menambahkan produk produk a kemudian di checkout pas di checkout si data ini tersimpan dan stoknya berkurang
+
+dan juga jika kita menghapus produk biasanya berpengaruh pada transaksi dan jika eror maka akan jadi pertanyaan idms
+
+maka caranya gimana 
+maka caranya tambahin soft delete buat di php my admin colom deleted.at/status
+
+dijelasin secara garis besar

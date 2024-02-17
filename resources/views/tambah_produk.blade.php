@@ -14,10 +14,6 @@
     <form action="tambah_produk" method="post" enctype="multipart/form-data">
         @method('post')
         @csrf
-        <label for="produk_id">ID PRODUK:</label>
-        <input type="text" id="produk_id" name="produk_id" >
-        <br><br>
-
         <label for="namaProduk">Nama Produk:</label>
         <input type="text" id="namaProduk" name="nama_produk" >
         <br><br>
@@ -30,9 +26,9 @@
         <input type="number" id="stok" name="stok" >
         <br><br>
 
-        <input type="submit" value="Tambah Produk">
+        <input type="submit" value="Tambah Produk"><br><br>
+        <a href="{{ url('home') }}" type="button" class="btn btn-success kembali">Kembali</a>
     </form>
-    <a href="{{'home'}}" type="button" class="btn btn-success kembali">Kembali</a>
 </body>
 
 </html>

@@ -5,7 +5,9 @@ namespace App\Http\Controllers;
 use Illuminate\Auth\AuthenticationException;
 use Illuminate\Http\Request;
 use App\Models\produk;
-use App\Models\Users;
+use App\Models\penjualan;
+use App\Models\pelanggan;
+use App\Models\detail_penjualan;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Hash;
 use Illuminate\Support\Facades\Session;
@@ -13,8 +15,16 @@ use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Redis;
 
 
-class LoginController extends Controller
+class authenticationController extends Controller
 {
+    //
+    function logout()
+    {
+        Session::flush();
+        Auth::logout();
+        return redirect('/login');
+    }
+
     function tampil_login_petugas()
     {
         return view('/login');
@@ -57,4 +67,11 @@ class LoginController extends Controller
         }
     }
 
+    function dashboard(){
+        $count =DB::table('produk')->count();
+
+        $data =DB::table('detail_penjualan')->sum('jumlah_produk');
+
+        return view('/dashboard',['count'=>$count,'jumlah'=>$data]);
+    }
 }

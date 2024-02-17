@@ -27,8 +27,10 @@
         <input type="text" id="telp" name="nomor_telepon">
         <br><br>
 
-        <input type="submit" value="Tambah Pelanggan">
+        <input type="submit" value="Tambah Pelanggan"><br><br>
+        <a href="{{ url('pelanggan') }}" type="button" class="btn btn-success kembali">Kembali</a>
     </form>
+    
 </body>
 
 </html>

@@ -11,7 +11,7 @@
 <body>
     @include('layouts.sidebar')
     <h2>Form Update Produk</h2>
-    <form method="post" enctype="multipart/form-data">
+    <form method="post" action="" enctype="multipart/form-data">
         @method('post')
         @csrf
         <label for="namaProduk">Nama Produk:</label>
@@ -26,9 +26,9 @@
         <input type="number" id="stok" name="stok" placeholder="{{$produk->stok}}">
         <br><br>
 
-        <input type="submit" value="Tambah Produk">
+        <input type="submit" value="Tambah Produk"><br><br>
+        <a href="{{ url('home') }}" type="button" class="btn btn-success kembali">Kembali</a>
     </form>
-    <a href="{{'home'}}" type="button" class="btn btn-success kembali">Kembali</a>
 </body>
 
 </html>
