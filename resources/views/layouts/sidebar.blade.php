@@ -5,7 +5,8 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <link rel="stylesheet" href="{{asset('assets/css/sidebar.css')}}">
-  
+  <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.8/dist/umd/popper.min.js" integrity="sha384-I7E8VVD/ismYTF4hNIPjVp/Zjvgyol6VFvRkX/vR+Vc4jQkC+hVqc2pM8ODewa9r" crossorigin="anonymous"></script>
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.min.js" integrity="sha384-BBtl+eGJRgqQAUMxJ7pMwbEyER4l1g+O15P+16Ep7Q9Q+zqX6gSbd85u4mG4QzX+" crossorigin="anonymous"></script>
 
   <title>Side Navbar</title>
   <link href="//maxcdn.bootstrapcdn.com/bootstrap/3.3.0/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
@@ -26,32 +27,32 @@
       <ul class="nav">
       <li>
           <a href="{{ url('dashboard') }}">
-            <i class="zmdi zmdi-view-dashboard"></i> Dashboard
+          <i class="fa-solid fa-shop"></i>Dashboard
           </a>
         </li>
         <li>
           <a href="{{ url('home') }}">
-            <i class="zmdi zmdi-view-dashboard"></i> Data Produk
+          <i class="fa-solid fa-box-archive"></i> Data Produk
           </a>
         </li>
         <li>
           <a href="{{ url('pelanggan') }}">
-            <i class="zmdi zmdi-link"></i> Data Pelanggan
+          <i class="fa-solid fa-user"></i> Data Pelanggan
           </a>
         </li>
         <li>
           <a href="{{ url('penjualan') }}">
-            <i class="zmdi zmdi-widgets"></i> Data Penjualan
+          <i class="fa-solid fa-chart-line"></i> Data Penjualan
           </a>
         </li>
         <li>
           <a href="{{ url('tambah_penjualan') }}">
-            <i class="zmdi zmdi-widgets"></i> Tambah Penjualan
+          <i class="fa-solid fa-cart-plus"></i> Tambah Penjualan
           </a>
         </li>
         <li>
           <a href="{{ url('logout') }}">
-            <i class="zmdi zmdi-calendar"></i> Logout
+          <i class="fa-solid fa-right-from-bracket"></i></i> Logout
           </a>
         </li>
       </ul>

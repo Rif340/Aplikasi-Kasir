@@ -14,6 +14,7 @@
     <h1 class="judul">Data Produk</h1>
     <div class="container">
     <a href="{{'tambah_produk'}}" type="button" class="btn btn-success">Tambah Produk</a>
+    <a href="trash-produk" type="submit">Produk Yang Dihapus</a>
     <table style="margin-top: 2rem;" class="table">
       <thead>
         <tr>
@@ -39,6 +40,7 @@
         @endforeach
       </tbody>
     </table>
+    
   </div>
 </body>
 

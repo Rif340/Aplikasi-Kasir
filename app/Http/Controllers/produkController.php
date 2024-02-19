@@ -20,6 +20,7 @@ class produkController extends Controller
     //
     public function tambah_produk()
     {
+        $produk = DB::table('produk')->where('status', 'tampil')->get();
         return view('/tambah_produk');
     }
 
@@ -34,20 +35,33 @@ class produkController extends Controller
             'nama_produk' => $nama_produk,
             'stok' => $stok,
             'harga' => $harga,
-
+            'status' => 'tampil'
         ]);
 
 
         return redirect('/home');
     }
 
-    function hapus($id)
-    {
-        echo $id;
-        $deleted = DB::table('produk')->where('produk_id', $id)->delete();
-        if ($deleted) {
-            return redirect('/home');
-        }
+    function trash(Request $request){
+        $produk = DB::table('produk')->where('status','dihapus')->get();
+ 
+        return view('/trash-produk',['produk'=>$produk]);
+     }
+
+     function restore(request $request ,$id){
+        DB::table('produk')->where('produk_id','=',$id)->update([
+            'status' => "tampil",
+            'deleted_at' => NULL,
+        ]);
+        return redirect()->back();
+    }
+
+    function hapus($id){
+        $produk = DB::table('produk')->where('produk_id','=',$id)->update([
+            'status' => "dihapus",
+        ]);
+       
+        return redirect()->back();
     }
 
     function tampil_update_produk($id)

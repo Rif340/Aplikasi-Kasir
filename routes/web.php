@@ -40,6 +40,8 @@ Route::middleware(['auth'])->group(function () {
     Route::get('/tambah_produk', [produkController::class, 'tambah_produk']);
     Route::get('/tambah_pelanggan', [pelangganController::class, 'tambah_pelanggan']);
     Route::post('/tambah_pelanggan', [pelangganController::class, 'proses_tambah_pelanggan']);
+    Route ::get('/trash-produk', [produkController::class,'trash']);
+    Route ::get('/restore-produk/{id}', [produkController::class,'restore']);
     Route::get('/hapus-produk/{produk_id}', [produkController::class, 'hapus',]);
     Route::get('/update_produk/{produk_id}', [produkController::class, 'tampil_update_produk',]);
     Route::post('/update_produk/{produk_id}', [produkController::class, 'proses_update_produk',]);

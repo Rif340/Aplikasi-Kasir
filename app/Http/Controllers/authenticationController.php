@@ -32,7 +32,8 @@ class authenticationController extends Controller
 
     function home()
     {
-        $produk = DB::table('produk')->get(); // Sesuaikan dengan model dan query yang sesuai
+        
+        $produk = DB::table('produk')->get(); 
         return view('/home', ['produk' => $produk]);
     }
 
@@ -68,10 +69,14 @@ class authenticationController extends Controller
     }
 
     function dashboard(){
-        $count =DB::table('produk')->count();
+        $jumlah_produk_keseluruhan =DB::table('produk')->count();
+
+        $jumlah_pelanggan_keseluruhan =DB::table('pelanggan')->count();
+
+        $jumlah_penjualan_keseluruhan =DB::table('penjualan')->count();
 
         $data =DB::table('detail_penjualan')->sum('jumlah_produk');
 
-        return view('/dashboard',['count'=>$count,'jumlah'=>$data]);
+        return view('/dashboard',['jumlah_produk_keseluruhan'=>$jumlah_produk_keseluruhan,'jumlah_pelanggan_keseluruhan'=>$jumlah_pelanggan_keseluruhan,'jumlah_penjualan_keseluruhan'=>$jumlah_penjualan_keseluruhan,'jumlah'=>$data]);
     }
 }

@@ -19,7 +19,7 @@ class penjualanController extends Controller
 {
     function penjualan()
     {
-        $produk = DB::table('produk')->get();
+        $produk = DB::table('produk')->where('status', 'tampil')->get();
 
         $pelanggan = DB::table('pelanggan')->get();
 
