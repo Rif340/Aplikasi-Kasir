@@ -62,7 +62,7 @@ class authenticationController extends Controller
 
     function login (request $request){
         if (Auth::attempt($request->only("username","password"))) {
-           return redirect('/home');
+           return redirect('/dashboard');
         }else{
            return view('/login')->with("salah","username atau password salah");
         }

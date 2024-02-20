@@ -41,11 +41,6 @@
           </a>
         </li>
         <li>
-          <a href="{{ url('pelanggan') }}">
-          <i class="fa-solid fa-users"></i></i> Data Petugas
-          </a>
-        </li>
-        <li>
           <a href="{{ url('penjualan') }}">
           <i class="fa-solid fa-chart-line"></i> Data Penjualan
           </a>

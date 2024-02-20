@@ -28,7 +28,7 @@ Route::get('/register', [authenticationController::class, 'register']);
 Route::post('/register', [authenticationController::class, 'proses_tambah_petugas']);
 Route::post('/login', [authenticationController::class, 'tampil_login_petugas']);
 
-Route::middleware(['auth'])->group(function () {
+Route::group(['middleware' => ['Admin']], function () { 
     Route::get('/home', [authenticationController::class, 'home'])->name('home');
     Route::get('/logout', [authenticationController::class, 'logout']);
     
@@ -55,4 +55,9 @@ Route::middleware(['auth'])->group(function () {
     Route::post('/checkout', [penjualanController::class, 'checkout']);
     Route::get('/detail-penjualan/{id}',[penjualanController::class,'detail']);
     Route ::get('/cancel-produk/{id}', [penjualanController::class,'cancel']);
+});
+
+
+Route::middleware(['petugas'])->group(function () {
+
 });
