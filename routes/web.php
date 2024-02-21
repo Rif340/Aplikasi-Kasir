@@ -28,7 +28,7 @@ Route::get('/register', [authenticationController::class, 'register']);
 Route::post('/register', [authenticationController::class, 'proses_tambah_petugas']);
 Route::post('/login', [authenticationController::class, 'tampil_login_petugas']);
 
-Route::group(['middleware' => ['Admin']], function () { 
+Route::group(['middleware' => ['petugas']], function () { 
     Route::get('/home', [authenticationController::class, 'home'])->name('home');
     Route::get('/logout', [authenticationController::class, 'logout']);
     
