@@ -18,9 +18,9 @@ class petugas
  */
  public function handle($request, Closure $next)
  {
-    if (Auth::check() && Auth::user()->role == 'petugas') {
+    if (Auth::check() && Auth::user()->level == 'petugas') {
       return $next($request);
-    }if (Auth::check() && Auth::user()->role == 'administrator') {
+    }if (Auth::check() && Auth::user()->level == 'administrator') {
       return $next($request);
     }
    return redirect('/login');
