@@ -100,11 +100,11 @@ class penjualanController extends Controller
         }
 
         function cancel(request $request,$id){
-        DB::table('detail_penjualan')->where('detail_id','=',$id)->delete();
-
-        
-        return redirect()->back();
-    }
+            echo $id;
+            $deleted = DB::table('penjualan')->where('penjualan_id', $id)->delete();
+            if ($deleted) {
+                return redirect('/penjualan');
+            }}
 
      function detail(Request $request ,$id){
         $detail = DB::table('detail_penjualan')
@@ -114,6 +114,17 @@ class penjualanController extends Controller
         ->get();
 
         return view('detail-penjualan',['detail'=> $detail]);
+    }
+
+    public function cetakStruk(Request $request ,$id)
+    {
+        $detail = DB::table('detail_penjualan')
+        ->join('produk', 'produk.produk_id', '=' ,'detail_penjualan.produk_id')
+        ->join('penjualan','penjualan.penjualan_id','=','detail_penjualan.penjualan_id')
+        ->where('detail_penjualan.Penjualan_id', $id)
+        ->get();
+
+        return view('cetak-struk',['detail'=> $detail]);
     }
     }
 
