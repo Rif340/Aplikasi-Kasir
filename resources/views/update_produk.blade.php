@@ -27,7 +27,7 @@
         <br><br>
 
         <input type="submit" value="Tambah Produk"><br><br>
-        <a href="{{ url('home') }}" type="button" class="btn btn-success kembali">Kembali</a>
+        <a href="{{ url('produk') }}" type="button" class="btn btn-warning kembali">Kembali</a>
     </form>
 </body>
 
