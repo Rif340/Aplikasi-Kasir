@@ -22,17 +22,15 @@ Route::get('/', function () {
 });
 
 Route::get('/login', [authenticationController::class, 'login'])->name('login');
-
-Route::get('/register', [authenticationController::class, 'register']);
-
-Route::post('/register', [authenticationController::class, 'proses_tambah_petugas']);
 Route::post('/login', [authenticationController::class, 'tampil_login_petugas']);
 
 Route::group(['middleware' => ['petugas']], function () { 
     Route::get('/home', [authenticationController::class, 'home'])->name('home');
     Route::get('/logout', [authenticationController::class, 'logout']);
     
-    //Route::get('/dashboard', [authenticationController::class, 'dashboard']);
+    Route::get('/dashboard', [authenticationController::class, 'dashboard']);
+    Route::get('/register', [authenticationController::class, 'register']);
+    Route::post('/register', [authenticationController::class, 'proses_tambah_petugas']);
 
     Route::post('/tambah_produk', [produkController::class, 'proses_tambah_produk']);
     Route::get('/tambah_produk', [produkController::class, 'tambah_produk']);
