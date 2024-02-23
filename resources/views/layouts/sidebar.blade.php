@@ -25,6 +25,11 @@
         <a href="#">K A S I R</a>
       </header>
       <ul class="nav">
+        <li>
+          <a href="{{ url('dashboard') }}">
+          <i class="fa-solid fa-shop"></i>Dashboard
+          </a>
+        </li>
        <li>
           <a href="{{ url('home') }}">
           <i class="fa-solid fa-box-archive"></i> Data Produk
