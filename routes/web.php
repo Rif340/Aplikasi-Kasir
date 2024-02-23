@@ -8,6 +8,7 @@ use App\Http\Controllers\pelangganController;
 use App\Http\Controllers\authenticationController;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\KasirController;
+
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -18,22 +19,15 @@ use App\Http\Controllers\KasirController;
 | be assigned to the "web" middleware group. Make something great!
 |
 */
-
-Route::get('/', function () {
-    return view('welcome');
-});
-
 Route::get('/login', [authenticationController::class, 'login'])->name('login');
 Route::post('/login', [authenticationController::class, 'tampil_login_petugas']);
 
 
-Route::group(['middleware' => ['petugas']], function () { 
+Route::group(['middleware' => ['petugas']], function () {
     Route::get('/produk', [authenticationController::class, 'produk'])->name('produk');
     Route::get('/logout', [authenticationController::class, 'logout']);
 
     Route::get('/index', [authenticationController::class, 'index']);
-    Route::get('/register', [authenticationController::class, 'register']);
-    Route::post('/register', [authenticationController::class, 'proses_tambah_petugas']);
 
     Route::post('/tambah_produk', [produkController::class, 'proses_tambah_produk']);
     Route::get('/tambah_produk', [produkController::class, 'tambah_produk']);
@@ -55,14 +49,12 @@ Route::group(['middleware' => ['petugas']], function () {
     Route::get('/penjualan', [penjualanController::class, 'data_penjualan']);
     Route::post('/checkout', [penjualanController::class, 'checkout']);
     Route::get('/detail-penjualan/{id}', [penjualanController::class, 'detail']);
-    Route::get('/cancel-produk/{id}', [penjualanController::class, 'cancel']);
-
-
-   
+    Route::get('/cancel/{id}', [penjualanController::class, 'cancel']);
+  
+    // Route::get('/cetak-struk/{penjualan_id}', [penjualanController::class, 'cetakStruk']);
 });
 
-Route::group(['middleware' => ['admin']], function () { 
+Route::group(['middleware' => ['admin']], function () {
     Route::get('/register', [authenticationController::class, 'register']);
-
     Route::post('/register', [authenticationController::class, 'proses_tambah_petugas']);
 });
