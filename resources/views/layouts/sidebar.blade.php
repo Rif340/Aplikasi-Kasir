@@ -41,11 +41,6 @@
           </a>
         </li>
         <li>
-          <a href="{{ url('pelanggan') }}">
-          <i class="fa-solid fa-users"></i></i> Data Petugas
-          </a>
-        </li>
-        <li>
           <a href="{{ url('penjualan') }}">
           <i class="fa-solid fa-chart-line"></i> Data Penjualan
           </a>
@@ -65,13 +60,14 @@
     <!-- Content -->
     <div id="content">
       <nav class="navbar navbar-default">
-        <div class="container-fluid">
+        <div class="container-fluid" style="height:20px; ">
+        <li style="list-style: none;text-align:right;position:relative; top:1rem;" ><a style="text-decoration: none; color:black">{{Auth::user()->username}} {{Auth::user()->level}}</a></li>
           <ul class="nav navbar-nav navbar-right">
             <li>
               <a href="#"><i class="zmdi zmdi-notifications text-danger"></i>
               </a>
             </li>
-            <li><a href="#">{{Auth::user()->username}} {{Auth::user()->level}}</a></li>
+           
           </ul>
         </div>
       </nav>
