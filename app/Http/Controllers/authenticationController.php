@@ -30,11 +30,11 @@ class authenticationController extends Controller
         return view('/login');
     }
 
-    function home()
+    function produk()
     {
         
-        $produk = DB::table('produk')->get(); 
-        return view('/home', ['produk' => $produk]);
+        $produk = DB::table('produk')->where('status', 'tampil')->get();
+        return view('/produk', ['produk' => $produk]);
     }
 
     public function register()
@@ -62,13 +62,13 @@ class authenticationController extends Controller
 
     function login (request $request){
         if (Auth::attempt($request->only("username","password"))) {
-           return redirect('/dashboard');
+           return redirect('/index');
         }else{
            return view('/login')->with("salah","username atau password salah");
         }
     }
 
-    function dashboard(){
+    function index(){
         $jumlah_produk_keseluruhan =DB::table('produk')->count();
 
         $jumlah_pelanggan_keseluruhan =DB::table('pelanggan')->count();
@@ -77,6 +77,6 @@ class authenticationController extends Controller
 
         $data =DB::table('detail_penjualan')->sum('jumlah_produk');
 
-        return view('/dashboard',['jumlah_produk_keseluruhan'=>$jumlah_produk_keseluruhan,'jumlah_pelanggan_keseluruhan'=>$jumlah_pelanggan_keseluruhan,'jumlah_penjualan_keseluruhan'=>$jumlah_penjualan_keseluruhan,'jumlah'=>$data]);
+        return view('/index',['jumlah_produk_keseluruhan'=>$jumlah_produk_keseluruhan,'jumlah_pelanggan_keseluruhan'=>$jumlah_pelanggan_keseluruhan,'jumlah_penjualan_keseluruhan'=>$jumlah_penjualan_keseluruhan,'jumlah'=>$data]);
     }
 }

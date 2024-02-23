@@ -39,7 +39,7 @@ class produkController extends Controller
         ]);
 
 
-        return redirect('/home');
+        return redirect('/produk');
     }
 
     function trash(Request $request){
@@ -85,6 +85,6 @@ class produkController extends Controller
                 'stok' => $stok
             ]);
 
-        return redirect('/home');
+        return redirect('/produk');
     }
 }

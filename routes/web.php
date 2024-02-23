@@ -26,15 +26,12 @@ Route::get('/', function () {
 Route::get('/login', [authenticationController::class, 'login'])->name('login');
 Route::post('/login', [authenticationController::class, 'tampil_login_petugas']);
 
-<<<<<<< HEAD
-Route::group(['middleware' => ['petugas']], function () {
-=======
+
 Route::group(['middleware' => ['petugas']], function () { 
->>>>>>> 88ff4b3f086bc4c5d36aed448676ca58f4d9c0ce
-    Route::get('/home', [authenticationController::class, 'home'])->name('home');
+    Route::get('/produk', [authenticationController::class, 'produk'])->name('produk');
     Route::get('/logout', [authenticationController::class, 'logout']);
 
-    Route::get('/dashboard', [authenticationController::class, 'dashboard']);
+    Route::get('/index', [authenticationController::class, 'index']);
     Route::get('/register', [authenticationController::class, 'register']);
     Route::post('/register', [authenticationController::class, 'proses_tambah_petugas']);
 
@@ -61,6 +58,10 @@ Route::group(['middleware' => ['petugas']], function () {
     Route::get('/cancel-produk/{id}', [penjualanController::class, 'cancel']);
 
 
+   
+});
+
+Route::group(['middleware' => ['admin']], function () { 
     Route::get('/register', [authenticationController::class, 'register']);
 
     Route::post('/register', [authenticationController::class, 'proses_tambah_petugas']);

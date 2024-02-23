@@ -8,7 +8,7 @@
   <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.8/dist/umd/popper.min.js" integrity="sha384-I7E8VVD/ismYTF4hNIPjVp/Zjvgyol6VFvRkX/vR+Vc4jQkC+hVqc2pM8ODewa9r" crossorigin="anonymous"></script>
   <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.min.js" integrity="sha384-BBtl+eGJRgqQAUMxJ7pMwbEyER4l1g+O15P+16Ep7Q9Q+zqX6gSbd85u4mG4QzX+" crossorigin="anonymous"></script>
 
-  <title>Side Navbar</title>
+  <title>kasir.com</title>
   <link href="//maxcdn.bootstrapcdn.com/bootstrap/3.3.0/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
   <script src="//maxcdn.bootstrapcdn.com/bootstrap/3.3.0/js/bootstrap.min.js"></script>
   <script src="//code.jquery.com/jquery-1.11.1.min.js"></script>
@@ -26,12 +26,12 @@
       </header>
       <ul class="nav">
         <li>
-          <a href="{{ url('dashboard') }}">
+          <a href="{{ url('index') }}">
           <i class="fa-solid fa-shop"></i>Dashboard
           </a>
         </li>
        <li>
-          <a href="{{ url('home') }}">
+          <a href="{{ url('produk') }}">
           <i class="fa-solid fa-box-archive"></i> Data Produk
           </a>
         </li>
