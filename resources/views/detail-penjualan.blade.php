@@ -32,7 +32,7 @@
 </table>
 <h1> Total Harga : {{ number_format($detail->TotalHarga, 0, ',', '.') }}</h1>
 <a href="{{ url('penjualan') }}" type="button" class="btn btn-warning kembali">Kembali</a>
-<a href="/cetak-struk/{{$detail->penjualan_id}}" class="btn btn-success">cetak</a>
+<!-- <a href="/cetak-struk/{{$detail->penjualan_id}}" class="btn btn-success">cetak</a> -->
 </div>
 </body>
 </html>
