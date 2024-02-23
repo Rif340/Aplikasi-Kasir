@@ -5,7 +5,7 @@
     <link rel="stylesheet" href="{{asset('assets/css/style.css')}}">
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Form Tambah Produk</title>
+    <title>kasir.com</title>
 </head>
 
 <body>
@@ -27,7 +27,7 @@
         <br><br>
 
         <input type="submit" value="Tambah Produk"><br><br>
-        <a href="{{ url('home') }}" type="button" class="btn btn-success kembali">Kembali</a>
+        <a href="{{ url('produk') }}" type="button" class="btn btn-success kembali">Kembali</a>
     </form>
 </body>
 

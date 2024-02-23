@@ -4,7 +4,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Detail Produk</title>
+    <title>kasir.com</title>
     <link rel="stylesheet" href="{{asset('assets/css/produk.css')}}">
     <link rel="stylesheet" href="{{asset('assets/css/boostrap.css')}}">
 </head>
