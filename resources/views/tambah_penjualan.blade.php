@@ -64,7 +64,7 @@
                         <td>{{$penjualan->subtotal}}</td>
                         <?php $total_harga =$total_harga + $penjualan->subtotal ?>
                         <td class="table-secondary">
-                            <a href="cancel" class="btn btn-danger">hapus</a>
+                            <a href="/cancel/{{$penjualan->penjualan_id}}" class="btn btn-danger">hapus</a>
                         </td>
                     </tr>
                     @endforeach
