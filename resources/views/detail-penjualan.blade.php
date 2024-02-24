@@ -22,11 +22,7 @@
   <tbody>
   @foreach ($detail as $detail) 
     <tr>
-<<<<<<< HEAD
       <td scope="row">{{$detail->nama_produk}}</td>
-=======
-      <th scope="row">{{$detail->nama_produk}}</th>
->>>>>>> a4801e5b03899ea43c0920f7d2ea2b5434f15dca
       <td>{{$detail->harga}}</td>
       <td>{{$detail->jumlah_produk}}</td>
       <td>{{$detail->subtotal}}</td>
