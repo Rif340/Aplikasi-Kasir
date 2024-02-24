@@ -12,15 +12,11 @@
     @include('layouts.sidebar')
     <div class="container">
     <a href="{{ url('penjualan') }}" type="button" class="btn btn-warning kembali">Kembali</a>
-<<<<<<< HEAD
     @if (session()->has('info'))
         <div class="alert alert-danger" role="alert" style="text-align: center; width:50%; margin:auto">
             {{ session('info') }}
         </div>
     @endif
-    
-=======
->>>>>>> a4801e5b03899ea43c0920f7d2ea2b5434f15dca
     </div>
         <h1 class="text-center">Tambah Penjualan</h1>
         <div class="row" id="bungkus_pertama">
