@@ -26,11 +26,7 @@
         <input type="number" id="stok" name="stok" placeholder="{{$produk->stok}}"  required>
         <br><br>
 
-<<<<<<< HEAD
         <input type="submit" value="Update Produk"><br><br>
-=======
-        <input type="submit" value="Tambah Produk"><br><br>
->>>>>>> a4801e5b03899ea43c0920f7d2ea2b5434f15dca
         <a href="{{ url('produk') }}" type="button" class="btn btn-warning kembali">Kembali</a>
     </form>
 </body>
