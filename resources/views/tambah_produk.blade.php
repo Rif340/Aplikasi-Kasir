@@ -15,19 +15,19 @@
         @method('post')
         @csrf
         <label for="namaProduk">Nama Produk:</label>
-        <input type="text" id="namaProduk" name="nama_produk" >
+        <input type="text" id="namaProduk" name="nama_produk"  required>
         <br><br>
 
         <label for="harga">Harga:</label>
-        <input type="number" id="harga" name="harga" >
+        <input type="number" id="harga" name="harga"  required>
         <br><br>
 
         <label for="stok">Stok:</label>
-        <input type="number" id="stok" name="stok" >
+        <input type="number" id="stok" name="stok"  required>
         <br><br>
 
         <input type="submit" value="Tambah Produk"><br><br>
-        <a href="{{ url('produk') }}" type="button" class="btn btn-success kembali">Kembali</a>
+        <a href="{{ url('produk') }}" type="button" class="btn btn-warning kembali">Kembali</a>
     </form>
 </body>
 

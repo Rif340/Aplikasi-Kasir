@@ -11,7 +11,13 @@
 <body>
     @include('layouts.sidebar')
     <div class="container">
-    <a href="{{ url('penjualan') }}" type="button" class="btn btn-success kembali">Kembali</a>
+    <a href="{{ url('penjualan') }}" type="button" class="btn btn-warning kembali">Kembali</a>
+    @if (session()->has('info'))
+        <div class="alert alert-danger" role="alert" style="text-align: center; width:50%; margin:auto">
+            {{ session('info') }}
+        </div>
+    @endif
+    
     </div>
         <h1 class="text-center">Tambah Penjualan</h1>
         <div class="row" id="bungkus_pertama">
@@ -29,7 +35,7 @@
                 </div>
                 <div class="form-group">
                     <label for="exampleFormControlInput1">Jumlah Produk</label>
-                    <input value="jumlah_produk" min="1" type="number" name="jumlah_produk" class="form-control" id="exampleFormControlInput1" >
+                    <input value="jumlah_produk" min="1" type="number" name="jumlah_produk" class="form-control" id="exampleFormControlInput1"  required>
                 </div>
                 <div class="form-group col">
                     <label for="exampleFormControlSelect1">Nama Pelanggan</label>
@@ -64,7 +70,7 @@
                         <td>{{$penjualan->subtotal}}</td>
                         <?php $total_harga =$total_harga + $penjualan->subtotal ?>
                         <td class="table-secondary">
-                            <a href="cancel" class="btn btn-danger">hapus</a>
+                            <a href="/cancel/{{$penjualan->penjualan_id}}" class="btn btn-danger">hapus</a>
                         </td>
                     </tr>
                     @endforeach

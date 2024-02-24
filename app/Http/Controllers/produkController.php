@@ -64,6 +64,15 @@ class produkController extends Controller
         return redirect()->back();
     }
 
+    function hapus_permanen($id){
+        echo $id;
+        $deleted = DB::table('produk')->where('produk_id', $id)->delete();
+        if ($deleted) {
+            return redirect('/produk');
+    }
+}
+
+
     function tampil_update_produk($id)
     {
         $produk = DB::table('produk')->where('produk_id', $id)->first();

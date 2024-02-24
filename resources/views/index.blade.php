@@ -65,17 +65,17 @@
 <body>
   @include('layouts.sidebar')
   <div class="container">
-    <!--Widget Start-->
-    <div class="card-body color1">
-            <div class="float-left row">
+     <!--Widget Start-->
+     <div class="card-body color1">
+            <div class="float-left">
                 <h3>
-                    <span class="count col">{{$jumlah_pelanggan_keseluruhan}}</span>
-                    <i class="fa-solid fa-shop col" style="font-size: 30px;margin-left:12rem;"></i>
+                    <span class="count">{{$jumlah_pelanggan_keseluruhan}}</span>
+                    <i class="fa-solid fa-user"  style="font-size: 30px;margin-left:12rem;"></i>
                 </h3>
-                <p style="margin-top: 2rem;">Jumlah Pelanggan</p>
+                <p style="margin-top: 2rem;">jumlah Pelanggan</p>
             </div>
             <div class="float-right">
-                <i class="pe-7s-cart"></i>
+                <i class="pe-7s-users"></i>
             </div>
         </div>
         <!--Widget End-->
@@ -84,7 +84,8 @@
             <div class="float-left">
                 <h3>
                     <span class="count">{{$jumlah_produk_keseluruhan}}</span>
-                    <i class="fa-solid fa-shop col" style="font-size: 30px;margin-left:12rem;"></i>
+                    <i class="fa-solid fa-box-archive" style="font-size: 30px;margin-left:12rem;"></i> 
+                    
                 </h3>
                 <p style="margin-top: 2rem;">jumlah Produk</p>
             </div>
@@ -98,7 +99,7 @@
             <div class="float-left">
                 <h3>
                     <span class="count">{{$jumlah_penjualan_keseluruhan}}</span>
-                    <i class="fa-solid fa-shop col" style="font-size: 30px;margin-left:12rem;"></i>
+                    <i class="fa-solid fa-chart-line"  style="font-size: 30px;margin-left:12rem;"></i> 
                 </h3>
                 <p style="margin-top: 2rem;">Jumlah Penjualan</p>
             </div>
@@ -107,7 +108,20 @@
             </div>
         </div>
         <!--Widget End-->
-
+         <!--Widget Start-->
+         <div class="card-body color1">
+            <div class="float-left">
+                <h3>
+                    <span class="count">{{$jumlah_karyawan_keseluruhan}}</span>
+                    <i class="fa-solid fa-user"  style="font-size: 30px;margin-left:12rem;"></i>
+                </h3>
+                <p style="margin-top: 2rem;">Jumlah Karyawan</p>
+            </div>
+            <div class="float-right">
+                <i class="pe-7s-browser"></i>
+            </div>
+        </div>
+        <!--Widget End-->
         <script type="text/javascript">
         $('.count').each(function(){
             $(this).prop('Counter',0).animate({

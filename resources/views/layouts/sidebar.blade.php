@@ -41,6 +41,11 @@
           </a>
         </li>
         <li>
+          <a href="{{ url('karyawan') }}">
+          <i class="fa-solid fa-user"></i>Data Karyawan
+          </a>
+        </li>
+        <li>
           <a href="{{ url('penjualan') }}">
           <i class="fa-solid fa-chart-line"></i> Data Penjualan
           </a>

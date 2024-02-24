@@ -12,23 +12,23 @@
 <body>
     @include('layouts.sidebar')
     <h2>Form Tambah Pelanggan</h2>
-    <form action="tambah_pelanggan" method="post" enctype="multipart/form-data">
+    <form action="tambah_pelanggan" method="post" enctype="multipart/form-data"  required>
         @method('post')
         @csrf
         <label for="namaProduk">Nama:</label>
-        <input type="text" id="namaProduk" name="nama_pelanggan">
+        <input type="text" id="namaProduk" name="nama_pelanggan"  required>
         <br><br>
 
         <label for="alamat">Alamat:</label>
-        <input type="text" id="alamat" name="alamat">
+        <input type="text" id="alamat" name="alamat"  required>
         <br><br>
 
         <label for="telp">No Telp:</label>
-        <input type="text" id="telp" name="nomor_telepon">
+        <input type="text" id="telp" name="nomor_telepon"  required>
         <br><br>
 
         <input type="submit" value="Tambah Pelanggan"><br><br>
-        <a href="{{ url('pelanggan') }}" type="button" class="btn btn-success kembali">Kembali</a>
+        <a href="{{ url('pelanggan') }}" type="button" class="btn btn-warning kembali">Kembali</a>
     </form>
     
 </body>
