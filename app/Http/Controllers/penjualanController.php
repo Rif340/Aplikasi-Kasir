@@ -126,4 +126,4 @@ class penjualanController extends Controller
 
         return view('cetak-struk',['detail'=> $detail]);
     }
-    }
+}

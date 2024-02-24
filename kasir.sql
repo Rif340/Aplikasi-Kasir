@@ -3,9 +3,9 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Waktu pembuatan: 03 Feb 2024 pada 03.29
+-- Waktu pembuatan: 24 Feb 2024 pada 00.26
 -- Versi server: 10.4.27-MariaDB
--- Versi PHP: 8.1.12
+-- Versi PHP: 8.2.0
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 START TRANSACTION;
@@ -34,16 +34,6 @@ CREATE TABLE `detail_penjualan` (
   `jumlah_produk` int(11) NOT NULL,
   `subtotal` int(11) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
-
---
--- Dumping data untuk tabel `detail_penjualan`
---
-
-INSERT INTO `detail_penjualan` (`detail_id`, `penjualan_id`, `produk_id`, `jumlah_produk`, `subtotal`) VALUES
-(70, 4, 2, 2, 26000),
-(72, 4, 2, 2, 26000),
-(73, 5, 2, 9, 117000),
-(74, 5, 7, 9, 45000);
 
 -- --------------------------------------------------------
 
@@ -144,17 +134,6 @@ CREATE TABLE `penjualan` (
   `status` text NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
---
--- Dumping data untuk tabel `penjualan`
---
-
-INSERT INTO `penjualan` (`penjualan_id`, `tanggal_penjualan`, `pelanggan_id`, `created_at`, `TotalHarga`, `status`) VALUES
-(1, '2024-01-25', 1, '2024-01-29 01:05:52', 409000, 'selesai'),
-(2, '2024-01-31', 1, '2024-01-31 01:56:46', 300000, 'selesai'),
-(3, '2024-01-31', 2, '2024-01-31 02:06:38', 1152000, 'selesai'),
-(4, '2024-01-31', 1, '2024-01-31 02:12:00', 52000, 'selesai'),
-(5, '2024-02-03', 2, '2024-02-03 00:12:19', 162000, 'selesai');
-
 -- --------------------------------------------------------
 
 --
@@ -184,18 +163,9 @@ CREATE TABLE `produk` (
   `produk_id` int(11) NOT NULL,
   `nama_produk` varchar(255) NOT NULL,
   `harga` int(11) NOT NULL,
-  `stok` int(11) NOT NULL
+  `stok` int(11) NOT NULL,
+  `status` text NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
-
---
--- Dumping data untuk tabel `produk`
---
-
-INSERT INTO `produk` (`produk_id`, `nama_produk`, `harga`, `stok`) VALUES
-(2, 'NutriBoost', 13000, 87),
-(4, 'indomie', 12000, 1000),
-(7, 'Sirup Marjan', 5000, 991),
-(8, 'Hidrococo', 9000, 1000);
 
 -- --------------------------------------------------------
 
@@ -227,7 +197,9 @@ INSERT INTO `users` (`id`, `nama_petugas`, `username`, `level`, `password`) VALU
 -- Indeks untuk tabel `detail_penjualan`
 --
 ALTER TABLE `detail_penjualan`
-  ADD PRIMARY KEY (`detail_id`);
+  ADD PRIMARY KEY (`detail_id`),
+  ADD KEY `detail_penjualan_ibfk_1` (`penjualan_id`),
+  ADD KEY `detail_penjualan_ibfk_2` (`produk_id`);
 
 --
 -- Indeks untuk tabel `failed_jobs`
@@ -289,7 +261,7 @@ ALTER TABLE `users`
 -- AUTO_INCREMENT untuk tabel `detail_penjualan`
 --
 ALTER TABLE `detail_penjualan`
-  MODIFY `detail_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=75;
+  MODIFY `detail_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=83;
 
 --
 -- AUTO_INCREMENT untuk tabel `failed_jobs`
@@ -325,7 +297,7 @@ ALTER TABLE `personal_access_tokens`
 -- AUTO_INCREMENT untuk tabel `produk`
 --
 ALTER TABLE `produk`
-  MODIFY `produk_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=9;
+  MODIFY `produk_id` int(11) NOT NULL AUTO_INCREMENT;
 
 --
 -- AUTO_INCREMENT untuk tabel `users`

@@ -26,8 +26,13 @@
         <input type="text" id="stok" name="nomor_telepon" placeholder="{{$pelanggan->nomor_telepon}}"  required>
         <br><br>
 
+<<<<<<< HEAD
         <input type="submit" value="Update Pelanggan"><br><br>
         <a href="{{ url('pelanggan') }}" type="button" class="btn btn-warning kembali" >Kembali</a>
+=======
+        <input type="submit" value="Tambah Pelanggan"><br><br>
+        <a href="{{ url('pelanggan') }}" type="button" class="btn btn-warning kembali">Kembali</a>
+>>>>>>> a4801e5b03899ea43c0920f7d2ea2b5434f15dca
     </form>
     <div class="container">
    
