@@ -59,7 +59,6 @@ class produkController extends Controller
     function hapus($id){
         $produk = DB::table('produk')->where('produk_id','=',$id)->update([
             'status' => "dihapus",
-            'deleted_at' =>'NULL'
         ]);
        
         return redirect()->back();
