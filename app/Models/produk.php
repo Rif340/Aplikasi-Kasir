@@ -11,5 +11,5 @@ class produk extends Model
     public $timestaps=false;
     protected $table ="produk";
 
-    protected $fillable =["produk_id","nama_produk","harga","stok"];
+    protected $fillable =["produk_id","nama_produk","harga","stok","status"];
 }
