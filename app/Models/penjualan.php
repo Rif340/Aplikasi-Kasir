@@ -11,5 +11,5 @@ class penjualan extends Model
     public $timestaps=false;
     protected $table ="penjualan";
 
-    protected $fillable =["penjualan_id","tanggal_penjualan","alamat_pelanggan","pelanggan_id"];
+    protected $fillable =["penjualan_id","tanggal_penjualan","created_at",,"TotalHarga","status","pelanggan_id"];
 }
