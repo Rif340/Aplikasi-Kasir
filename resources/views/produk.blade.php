@@ -11,6 +11,45 @@
 
 <body>
     @include('layouts.sidebar')
+
+    @if (session()->has('info'))
+        <div class="alert alert-success" role="alert" style="text-align: center; width:50%; margin:auto">
+            {{ session('info') }}
+        </div>
+        @endif
+        @if(session('info'))
+           <script>
+               setTimeout(function () {
+                   document.querySelector('.alert').style.display = 'none';
+               }, 3000); // Menyembunyikan alert setelah 3 detik
+           </script>
+           @endif
+          
+           @if (session()->has('info2'))
+        <div class="alert alert-success" role="alert" style="text-align: center; width:50%; margin:auto">
+            {{ session('info2') }}
+        </div>
+        @endif
+        @if(session('info2'))
+           <script>
+               setTimeout(function () {
+                   document.querySelector('.alert').style.display = 'none';
+               }, 3000); // Menyembunyikan alert setelah 3 detik
+           </script>
+           @endif
+           
+           @if (session()->has('info3'))
+        <div class="alert alert-danger" role="alert" style="text-align: center; width:50%; margin:auto">
+            {{ session('info3') }}
+        </div>
+        @endif
+        @if(session('info3'))
+           <script>
+               setTimeout(function () {
+                   document.querySelector('.alert').style.display = 'none';
+               }, 3000); // Menyembunyikan alert setelah 3 detik
+           </script>
+           @endif
     <h1 class="judul">Data Produk</h1>
     <div class="container">
     <a href="{{'tambah_produk'}}" type="button" class="btn btn-success">Tambah Produk</a>
