@@ -10,6 +10,14 @@
 
 <body>
     @include('layouts.sidebar')
+    @error('nama_produk')
+        <div class="alert alert-danger" role="alert" style="text-align: center; width:50%; margin:auto">kalimat mencapai batas</div>
+        <script>
+               setTimeout(function () {
+                   document.querySelector('.alert').style.display = 'none';
+               }, 3000); // Menyembunyikan alert setelah 3 detik
+           </script>
+          @enderror('nama_produk')
     <h2>Form Tambah Produk</h2>
     <form action="tambah_produk" method="post" enctype="multipart/form-data">
         @method('post')

@@ -11,24 +11,33 @@
 
 <body>
     @include('layouts.sidebar')
+    @error('nomor_telepon')
+        <div class="alert alert-danger" role="alert" style="text-align: center; width:50%; margin:auto">angka mencapai batas</div>
+        <script>
+               setTimeout(function () {
+                   document.querySelector('.alert').style.display = 'none';
+               }, 3000); // Menyembunyikan alert setelah 3 detik
+           </script>
+          @enderror('nomor_telepon')
     <h2>Form Tambah Pelanggan</h2>
-    <form action="tambah_pelanggan" method="post" enctype="multipart/form-data"  required>
+    <form action="tambah_pelanggan" method="post" enctype="multipart/form-data">
         @method('post')
         @csrf
-        <label for="namaProduk">Nama:</label>
-        <input type="text" id="namaProduk" name="nama_pelanggan"  required>
+        <label for="nama_pelanggan">Nama:</label>
+        <input type="text" id="nama_pelanggan" name="nama_pelanggan" required>
         <br><br>
 
         <label for="alamat">Alamat:</label>
-        <input type="text" id="alamat" name="alamat"  required>
+        <input type="text" id="alamat" name="alamat" required>
         <br><br>
 
         <label for="telp">No Telp:</label>
-        <input type="text" id="telp" name="nomor_telepon"  required>
+        <input type="number" id="telp" name="nomor_telepon" required>
+      
         <br><br>
 
         <input type="submit" value="Tambah Pelanggan"><br><br>
-        <a href="{{ url('pelanggan') }}" type="button" class="btn btn-warning kembali">Kembali</a>
+        <a href="{{ url('pelanggan') }}"  class="btn btn-warning">Kembali</a>
     </form>
     
 </body>
