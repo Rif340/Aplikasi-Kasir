@@ -26,35 +26,62 @@ class pelangganController extends Controller
 
     function proses_tambah_pelanggan(Request $request)
     {
+        $request->validate([
+            'nomor_telepon' => 'required|max:12'
+        ]);
+
         $nama_pelanggan = $request->nama_pelanggan;
         $alamat = $request->alamat;
         $nomor_telepon = $request->nomor_telepon;
         $pelanggan_id = $request->pelanggan_id;
 
         DB::table('pelanggan')->insert([
-
             'nama_pelanggan' => $nama_pelanggan,
             'alamat' => $alamat,
+            'status' => 'tampil',
             'nomor_telepon' => $nomor_telepon
         ]);
 
-        return redirect('/pelanggan')->with('pelanggan_id', $pelanggan_id);
+        return redirect('/pelanggan')->with("info2","pelanggan telah di tambahkan");
     }
 
     function pelanggan()
     {
-        $pelanggan = DB::table('pelanggan')->get(); // Sesuaikan dengan model dan query yang sesuai
+        
+        $pelanggan = DB::table('pelanggan')->where('status', 'tampil')->get();
         return view('/pelanggan', ['pelanggan' => $pelanggan]);
     }
 
-    function hapus_pelanggan($id)
+    function trash(Request $request){
+        $pelanggan = DB::table('pelanggan')->where('status','dihapus')->get();
+ 
+        return view('/trash-pelanggan',['pelanggan'=>$pelanggan]);
+     }
+
+     function restore(request $request ,$id){
+        DB::table('pelanggan')->where('pelanggan_id','=',$id)->update([
+            'status' => "tampil",
+
+        ]);
+        return redirect('/pelanggan');
+    }
+
+    function hapus($id){
+        $pelanggan = DB::table('pelanggan')->where('pelanggan_id','=',$id)->update([
+            'status' => "dihapus",
+        ]);
+        return redirect()->back();
+    }
+
+    function hapus_permanen($id)
     {
         echo $id;
         $deleted = DB::table('pelanggan')->where('pelanggan_id', $id)->delete();
         if ($deleted) {
-            return redirect('/pelanggan');
+            return redirect('/pelanggan')->with('info3','produk telah di hapus permanen');
         }
     }
+
 
     function tampil_update_pelanggan($id)
     {
@@ -64,6 +91,10 @@ class pelangganController extends Controller
 
     function proses_update_pelanggan(Request $request, $id)
     {
+        $request->validate([
+            'nomor_telepon' => 'required|max:12'
+        ]);
+
         $nama_pelanggan = $request->nama_pelanggan;
         $alamat = $request->alamat;
         $nomor_telepon = $request->nomor_telepon;
@@ -75,6 +106,6 @@ class pelangganController extends Controller
                 'alamat' => $alamat,
                 'nomor_telepon' => $nomor_telepon
             ]);
-        return redirect('/pelanggan');
+        return redirect('/pelanggan')->with("info","pelanggan telah di update");
     }
 }

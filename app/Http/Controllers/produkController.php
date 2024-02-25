@@ -17,6 +17,12 @@ use Illuminate\Support\Facades\Redis;
 
 class produkController extends Controller
 {
+    function produk()
+    {
+        
+        $produk = DB::table('produk')->where('status', 'tampil')->get();
+        return view('/produk', ['produk' => $produk]);
+    }
     //
     public function tambah_produk()
     {
@@ -26,6 +32,10 @@ class produkController extends Controller
 
     function proses_tambah_produk(Request $request)
     {
+        $request->validate([
+            'nama_produk' => 'required|max:255'
+        ]);
+
         $nama_produk = $request->nama_produk;
         $stok = $request->stok;
         $harga = $request->harga;
@@ -39,7 +49,7 @@ class produkController extends Controller
         ]);
 
 
-        return redirect('/produk');
+        return redirect('/produk')->with("info2","produk telah di tambahkan");
     }
 
     function trash(Request $request){
@@ -51,9 +61,9 @@ class produkController extends Controller
      function restore(request $request ,$id){
         DB::table('produk')->where('produk_id','=',$id)->update([
             'status' => "tampil",
-            'deleted_at' => NULL,
+
         ]);
-        return redirect()->back();
+        return redirect('/produk');
     }
 
     function hapus($id){
@@ -68,7 +78,7 @@ class produkController extends Controller
         echo $id;
         $deleted = DB::table('produk')->where('produk_id', $id)->delete();
         if ($deleted) {
-            return redirect('/produk');
+            return redirect('/produk')->with("info3","produk telah di hapus permanen");
     }
 }
 
@@ -82,6 +92,10 @@ class produkController extends Controller
     
     function proses_update_produk(Request $request, $id)
     {
+        $request->validate([
+            'nama_produk' => 'required|max:255'
+        ]);
+
         $nama_produk = $request->nama_produk;
         $harga = $request->harga;
         $stok = $request->stok;
@@ -94,6 +108,6 @@ class produkController extends Controller
                 'stok' => $stok
             ]);
 
-        return redirect('/produk');
+        return redirect('/produk')->with("info","produk telah di update");
     }
 }

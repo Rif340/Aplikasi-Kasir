@@ -30,12 +30,7 @@ class authenticationController extends Controller
         return view('/login');
     }
 
-    function produk()
-    {
-        
-        $produk = DB::table('produk')->where('status', 'tampil')->get();
-        return view('/produk', ['produk' => $produk]);
-    }
+    
 
     public function register()
     {
@@ -76,6 +71,7 @@ class authenticationController extends Controller
         $jumlah_penjualan_keseluruhan =DB::table('penjualan')->count();
 
         $jumlah_karyawan_keseluruhan =DB::table('users')->count();
+        
         $data =DB::table('detail_penjualan')->sum('jumlah_produk');
 
         return view('/index',['jumlah_karyawan_keseluruhan'=>$jumlah_karyawan_keseluruhan,'jumlah_produk_keseluruhan'=>$jumlah_produk_keseluruhan,'jumlah_pelanggan_keseluruhan'=>$jumlah_pelanggan_keseluruhan,'jumlah_penjualan_keseluruhan'=>$jumlah_penjualan_keseluruhan,'jumlah'=>$data]);
