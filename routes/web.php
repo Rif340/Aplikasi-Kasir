@@ -1,14 +1,9 @@
 <?php
-
-use App\Http\Controllers\KegiatanController;
-use App\Http\Controllers\LoginController;
 use App\Http\Controllers\penjualanController;
 use App\Http\Controllers\produkController;
 use App\Http\Controllers\pelangganController;
 use App\Http\Controllers\authenticationController;
 use Illuminate\Support\Facades\Route;
-use App\Http\Controllers\KasirController;
-
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -24,7 +19,7 @@ Route::post('/login', [authenticationController::class, 'tampil_login_petugas'])
 
 
 Route::group(['middleware' => ['petugas']], function () {
-    Route::get('/produk', [authenticationController::class, 'produk'])->name('produk');
+    Route::get('/produk', [produkController::class, 'produk'])->name('produk');
     Route::get('/logout', [authenticationController::class, 'logout']);
 
     Route::get('/index', [authenticationController::class, 'index']);
@@ -36,12 +31,15 @@ Route::group(['middleware' => ['petugas']], function () {
     Route::get('/tambah_pelanggan', [pelangganController::class, 'tambah_pelanggan']);
     Route::post('/tambah_pelanggan', [pelangganController::class, 'proses_tambah_pelanggan']);
     Route::get('/trash-produk', [produkController::class, 'trash']);
+    Route::get('/trash-pelanggan', [pelangganController::class, 'trash']);
     Route::get('/restore-produk/{id}', [produkController::class, 'restore']);
+    Route::get('/restore-pelanggan/{id}', [pelangganController::class, 'restore']);
     Route::get('/hapus-produk/{produk_id}', [produkController::class, 'hapus',]);
     Route::get('/hapus-permanen-produk/{produk_id}', [produkController::class, 'hapus_permanen',]);
     Route::get('/update_produk/{produk_id}', [produkController::class, 'tampil_update_produk',]);
     Route::post('/update_produk/{produk_id}', [produkController::class, 'proses_update_produk',]);
-    Route::get('/hapus-pelanggan/{pelanggan_id}', [pelangganController::class, 'hapus_pelanggan',]);
+    Route::get('/hapus-pelanggan/{pelanggan_id}', [pelangganController::class, 'hapus',]);
+    Route::get('/hapus-permanen-pelanggan/{pelanggan_id}', [pelangganController::class, 'hapus_permanen',]);
     Route::get('/update-pelanggan/{pelanggan_id}', [pelangganController::class, 'tampil_update_pelanggan',]);
     Route::post('/update-pelanggan/{pelanggan_id}', [pelangganController::class, 'proses_update_pelanggan',]);
 
@@ -52,7 +50,7 @@ Route::group(['middleware' => ['petugas']], function () {
     Route::get('/detail-penjualan/{id}', [penjualanController::class, 'detail']);
     Route::get('/cancel/{id}', [penjualanController::class, 'cancel']);
   
-    // Route::get('/cetak-struk/{penjualan_id}', [penjualanController::class, 'cetakStruk']);
+    Route::get('/cetak-struk/{penjualan_id}', [penjualanController::class, 'cetakStruk']);
 });
 
 Route::group(['middleware' => ['admin']], function () {
