@@ -147,7 +147,12 @@ class penjualanController extends Controller
             ->join('produk', 'produk.produk_id', '=', 'detail_penjualan.produk_id')
             ->where('detail_penjualan.penjualan_id', $id)
             ->get();
-        return view('cetak-struk', ['detail' => $detail, 'penjualan' => $penjualan,'count'=>$count]);
+    
+            $percobaan = DB::table('penjualan')
+            ->join('pelanggan', 'pelanggan.pelanggan_id', '=', 'penjualan.pelanggan_id')
+            ->get();
+        
+        return view('cetak-struk', ['detail' => $detail, 'penjualan' => $penjualan,'count'=>$count,'percobaan'=>$percobaan]);
     }
     
 }
