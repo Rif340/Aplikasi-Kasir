@@ -78,7 +78,7 @@ class pelangganController extends Controller
         echo $id;
         $deleted = DB::table('pelanggan')->where('pelanggan_id', $id)->delete();
         if ($deleted) {
-            return redirect('/pelanggan')->with('info3','produk telah di hapus permanen');
+            return redirect('/pelanggan')->with('info3','Pelanggan Telah Di Hapus Permanen');
         }
     }
 
