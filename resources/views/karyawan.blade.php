@@ -39,6 +39,7 @@
         @endforeach
       </tbody>
     </table>
+    <a href="{{'register'}}" type="button" class="btn btn-success">Tambah Karyawan</a>
     <a href="{{ url('index') }}" type="button" class="btn btn-warning kembali">Kembali</a>
   </div>
 </body>
