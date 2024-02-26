@@ -94,7 +94,9 @@
         <div class="content">
             <div >
                 <p>Tanggal Penjualan :{{ $penjualan->tanggal_penjualan }}</p>
-                <p>Nama Pelanggan : {{ $pelanggan->nama_pelanggan }}</p>
+                @foreach ($percobaan as $percobaan)
+                <p>Tanggal Penjualan :{{ $percobaan->nama_pelanggan }}</p>
+                @endforeach
                 <p>Penjualan ID :{{ $penjualan->penjualan_id }}</p>
             </div>
             <p>-----------------------------------------------------------------------------------------------</p>
