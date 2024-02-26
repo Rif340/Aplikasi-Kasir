@@ -111,7 +111,7 @@ class penjualanController extends Controller
             'TotalHarga' => $request->total_harga
             ]);
             
-                return redirect()->back();
+                return redirect('/penjualan');
             
         }
 
@@ -136,8 +136,7 @@ class penjualanController extends Controller
 
     public function cetakStruk(Request $request, $id)
     {
-        $pelanggan = DB::table('pelanggan')->where('pelanggan_id', $id)->first();
-
+        
         $count =DB::table('detail_penjualan')->where('penjualan_id',$id)->sum('penjualan_id');
 
         $penjualan = DB::table('penjualan')
@@ -146,12 +145,9 @@ class penjualanController extends Controller
     
         $detail = DB::table('detail_penjualan')
             ->join('produk', 'produk.produk_id', '=', 'detail_penjualan.produk_id')
-            ->where('detail_penjualan.Penjualan_id', $id)
+            ->where('detail_penjualan.penjualan_id', $id)
             ->get();
-    
-         
-        
-        return view('cetak-struk', ['detail' => $detail, 'penjualan' => $penjualan,'pelanggan'=>$pelanggan,'count'=>$count]);
+        return view('cetak-struk', ['detail' => $detail, 'penjualan' => $penjualan,'count'=>$count]);
     }
     
 }
