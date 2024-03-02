@@ -50,11 +50,12 @@ Route::group(['middleware' => ['petugas']], function () {
     Route::get('/detail-penjualan/{id}', [penjualanController::class, 'detail']);
     Route::get('/cancel/{id}', [penjualanController::class, 'cancel']);
   
-    Route::get('/cetak-struk/{penjualan_id}', [penjualanController::class, 'cetakStruk']);
+
 });
 
 Route::group(['middleware' => ['admin']], function () {
     Route::get('/register', [authenticationController::class, 'register']);
     Route::post('/register', [authenticationController::class, 'proses_tambah_petugas']);
     Route::get('/karyawan', [authenticationController::class, 'karyawan']);
+    Route::get('/cetak-struk/{penjualan_id}', [penjualanController::class, 'cetakStruk']);
 });
