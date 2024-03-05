@@ -1,2 +1,1 @@
-
-    <source src="https://github.com/Rif340/Gambar-Gambar/blob/main/Tab%20Baru%20-%20Google%20Chrome%202024-03-06%2000-58-31_2.mp4" type="video/webm" />
+<img src="https://drive.google.com/file/d/1jRGBA8gL7j1h61nYV26gX6CHCJg_c-rE/view?usp=sharing" height="100%" width="100%">
