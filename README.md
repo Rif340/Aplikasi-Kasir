@@ -1,4 +1,4 @@
-<img width"100%" height="100%" src="https://github.com/Rif340/Gambar-Gambar/blob/main/Tab%20Baru%20-%20Google%20Chrome%202024-03-06%2000-58-31_2.gif"></img>
+<img width"100%" height="100%" src="https://github.com/Rif340/Gambar-Gambar/blob/main/Tab%20Baru%20-%20Google%20Chrome%202024-03-06%2000-58-31_2.gif">
 
 <p align="center"><a href="https://laravel.com" target="_blank"><img src="https://raw.githubusercontent.com/laravel/art/master/logo-lockup/5%20SVG/2%20CMYK/1%20Full%20Color/laravel-logolockup-cmyk-red.svg" width="400" alt="Laravel Logo"></a></p>
 
