@@ -3,6 +3,9 @@
 
 <head>
     <meta charset="UTF-8">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Libre+Barcode+39+Extended+Text&display=swap" rel="stylesheet">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <style>
         @page {
@@ -88,16 +91,18 @@
         <div class="address">
             <p>Jl. Cikampek-Parakan Kec.Kota baru</p>
             <p>Telp. 085888060024 </p>
-
+            <span style="font-family: 'Libre Barcode 39 Extended Text'; font-size: 55px;">{{$penjualan->penjualan_id}}</span>
         </div>
         <p>-----------------------------------------------------------------------</p>
         <div class="content">
             <div >
-                <p>Tanggal Penjualan :{{ $penjualan->tanggal_penjualan }}</p>
-                @foreach ($percobaan as $percobaan)
-                <p>Nama Pelanggan :{{ $percobaan->nama_pelanggan }}</p>
-                @endforeach
-                <p>Penjualan ID :{{ $penjualan->penjualan_id }}</p>
+               
+                @foreach  ($percobaan as $item)
+                <p>Nama Pelangggan :{{ $item->nama_pelanggan }}</p> @break 
+             @endforeach
+                
+             <p>Tanggal Penjualan :{{ $item->tanggal_penjualan }}</p>
+             <p>Penjualan ID :{{ $penjualan->penjualan_id }}</p>
             </div>
             <p>-----------------------------------------------------------------------------------------------</p>
             <div class="item">
@@ -125,7 +130,7 @@
         </div>
         <div class="payment">
             <p>Kembali</p>
-            <p>Rp. 0,-</p> <!-- Untuk Kembali, mungkin perlu dikalkulasikan sesuai kebutuhan -->
+            <p>Rp. 0,-</p> 
         </div>
         <p>-----------------------------------------------------------------------</p>
         <div class="footer">
