@@ -101,7 +101,7 @@
                 <p>Nama Pelangggan :{{ $item->nama_pelanggan }}</p> @break 
              @endforeach
                 
-             <p>Tanggal Penjualan :{{ $item->tanggal_penjualan }}</p>
+             <p>Tanggal Pembelian :{{ $item->tanggal_penjualan }}</p>
              <p>Penjualan ID :{{ $penjualan->penjualan_id }}</p>
             </div>
             <p>-----------------------------------------------------------------------------------------------</p>
