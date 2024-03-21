@@ -30,27 +30,30 @@ class produkController extends Controller
         return view('/tambah_produk');
     }
 
-    function proses_tambah_produk(Request $request)
-    {
-        $request->validate([
-            'nama_produk' => 'required|max:255'
-        ]);
+    public function proses_tambah_produk(Request $request)
+{
+    $request->validate([
+        'nama_produk' => 'required|max:25'
+    ]);
 
-        $nama_produk = $request->nama_produk;
-        $stok = $request->stok;
-        $harga = $request->harga;
+    $nama_produk = $request->nama_produk;
+    $stok = $request->stok;
+    $harga = $request->harga;
 
+    try {
         DB::table('produk')->insert([
-
             'nama_produk' => $nama_produk,
             'stok' => $stok,
             'harga' => $harga,
             'status' => 'tampil'
         ]);
 
-
-        return redirect('/produk')->with("info2","produk telah di tambahkan");
+        return redirect('/produk')->with("info2", "Produk telah ditambahkan");
+    } catch (\Throwable $th) {
+        // Tangkap pengecualian dan tampilkan pesan alert
+        return redirect()->back()->with("info2", "Nama Produk Sudah Ada");;
     }
+}
 
     function trash(Request $request){
         $produk = DB::table('produk')->where('status','dihapus')->get();
