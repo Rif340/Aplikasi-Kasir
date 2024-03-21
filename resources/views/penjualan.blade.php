@@ -21,6 +21,8 @@
           <th scope="col" class="table-warning">Tanggal Penjualan</th>
           <th scope="col" class="table-warning">Nama Pelanggan</th>
           <th scope="col" class="table-warning">Total Harga</th>
+          <th scope="col" class="table-warning">Uang</th>
+          <th scope="col" class="table-warning">Kembalian</th>
           <th scope="col" class="table-warning">Detail</th>
         </tr>
       </thead>
@@ -31,6 +33,8 @@
         <td>{{$penjualan->tanggal_penjualan}}</td>
         <td>{{$penjualan->nama_pelanggan}}</td>
         <td>{{$penjualan->TotalHarga}}</td>
+        <td>{{$penjualan->uang}}</td>
+        <td>{{$penjualan->kembalian}}</td>
         <td class="table-secondary">
             <a href="/detail-penjualan/{{$penjualan->penjualan_id}}" class="btn btn-primary">detail</a>
           </td>
