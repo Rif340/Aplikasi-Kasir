@@ -85,7 +85,10 @@
                 </tr>
             </thead>
             <?php $no =1;
-                        $total_harga=0?>
+                        $total_harga=0;
+                            $uang=0;
+                                $kembalian=0;?>
+            
             <tbody>
                 @foreach($penjualan as $penjualan)
                 <tr>
@@ -109,7 +112,10 @@
         <form class="container" action="/checkout" method="post">
             @method('post')
             @csrf
+           
+            <input type="input" name="uang" placeholder="masukan nominal uang">
             <input type="hidden" name="total_harga" value="{{ $total_harga }}">
+            <input type="hidden" name="kembalian" value="{{ $kembalian }}">
             <input type="hidden" name="penjualan_id" value="{{ $penjualan_id }}">
             <button type="submit" class="btn btn-primary">checkout</button>
         </form>
