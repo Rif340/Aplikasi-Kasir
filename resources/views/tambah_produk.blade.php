@@ -10,8 +10,20 @@
 
 <body>
     @include('layouts.sidebar')
-    @error('nama_produk')
-        <div class="alert alert-danger" role="alert" style="text-align: center; width:50%; margin:auto">kalimat mencapai batas</div>
+    @if (session()->has('info2'))
+        <div class="alert alert-danger" role="alert" style="text-align: center; width:50%; margin:auto">
+            {{ session('info2') }}
+        </div>
+        @endif
+        @if(session('info2'))
+           <script>
+               setTimeout(function () {
+                   document.querySelector('.alert').style.display = 'none';
+               }, 3000); // Menyembunyikan alert setelah 3 detik
+           </script>
+           @endif
+           @error('nama_produk')
+        <div class="alert alert-danger" role="alert" style="text-align: center; width:50%; margin:auto">Kalimat Mencapai Batas</div>
         <script>
                setTimeout(function () {
                    document.querySelector('.alert').style.display = 'none';
