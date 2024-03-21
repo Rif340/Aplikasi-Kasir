@@ -66,6 +66,8 @@ class penjualanController extends Controller
                 'penjualan_id' => $request->penjualan_id,
                 'tanggal_penjualan'=> date('y-m-d'),
                 'TotalHarga' => 0,
+                'kembalian'=>0,
+                'uang'=>0,
                 'pelanggan_id' => $pelanggan_id,
                 'status'=>"pending"
             ]);
@@ -104,16 +106,26 @@ class penjualanController extends Controller
             return view ('penjualan',['penjualan'=>$penjualan]);
         }
         
-        function checkout(request $request){
-            
-            $updateData = DB::table('penjualan')->where('penjualan_id',$request->penjualan_id)->update([
-            'status' =>'selesai',
-            'TotalHarga' => $request->total_harga
-            ]);
-            
-                return redirect('/penjualan');
-            
+        function checkout(Request $request){
+            // Mengambil nilai 'uang' dan 'total_harga' dari permintaan (request)
+            $uang = $request->uang;
+            $total_harga = $request->total_harga;
+        
+            // Memperbarui data penjualan berdasarkan 'penjualan_id' yang diberikan
+            $updateData = DB::table('penjualan')
+                            ->where('penjualan_id', $request->penjualan_id)
+                            ->update([
+                                'status' => 'selesai',
+                                // Menghitung kembalian dengan mengurangkan total harga dari uang yang diberikan
+                                'kembalian' => $uang - $total_harga,
+                                'uang' => $uang, // Menyimpan nilai uang yang diberikan dalam tabel
+                                'TotalHarga' => $total_harga // Menyimpan total harga dalam tabel
+                            ]);
+        
+            // Mengarahkan pengguna kembali ke halaman penjualan setelah proses checkout selesai
+            return redirect('/penjualan');
         }
+        
 
         function cancel(request $request,$id){
             echo $id;
