@@ -40,11 +40,13 @@
           <i class="fa-solid fa-user"></i> Data Pelanggan
           </a>
         </li>
+        @if(Auth::check() && Auth::user()->level !== 'petugas')
         <li>
           <a href="{{ url('karyawan') }}">
           <i class="fa-solid fa-user"></i>Data Karyawan
           </a>
         </li>
+        @endif
         <li>
           <a href="{{ url('penjualan') }}">
           <i class="fa-solid fa-chart-line"></i> Data Penjualan
